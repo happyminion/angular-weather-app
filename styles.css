@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Shadows+Into+Light');
+
+.fontCabinSketch {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 3em;
+}
+.fontShadowsIntoLight {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: large;
+  font-weight: 600;
+}

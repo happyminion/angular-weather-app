@@ -1,0 +1,85 @@
+<div class="container-fluid" id='mainDiv'>
+
+  <!-- Search -->
+
+  <div class="row text-center fontShadowsIntoLight" style="margin-top: 10px;">
+    <form (ngSubmit)="onGetCurrentPositionWeather(input.value)" #weatherForm="ngForm">
+      <label for="cityName">City: </label>
+      <input class="form" type="text" id="cityName" name="cityNameControl" required ngModel #input="ngModel" />
+      <button class="btn btn-primary" type="submit" [disabled]="!weatherForm.valid">Search</button>
+      <span class="help-block" *ngIf="!input.valid && input.touched" style="color: darkred;">Please enter a location name!</span>
+    </form>
+  </div>
+
+  <!-- City name, country and current date (of website user) -->
+
+  <div class="row">
+    <div class="text-center">
+      <h1 id="name" class="fontCabinSketch">{{ cityName }}</h1>
+      <p id="country" class="fontShadowsIntoLight">{{ cityCountry }}</p>
+      <p class="help-block fontShadowsIntoLight" style="color: black;">{{ dateTime | date: 'medium' }}</p>
+    </div>
+  </div>
+
+  <!-- Current weather info -->
+
+  <div id="weatherInfo" class="fontShadowsIntoLight">
+
+    <div class="row text-center">
+      <div><img src="{{ cityIcon }}" /></div>
+      <div id="description">{{ cityDescription }}</div>
+    </div>
+
+    <div class="row text-center">
+      <div id="temp" style="font-size: 5em;">{{ cityTemp }}</div>
+    </div>
+
+    <div class="row text-center">
+      <div id="minimTemp">{{ cityMinTemp }}</div>
+      <div id="maximTemp">{{ cityMaxTemp }}</div>
+    </div>
+
+  </div>
+
+<!-- Forecast -->
+
+    <div class="row fontShadowsIntoLight" id="forecast">
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center" style="border: 1px solid black;" id="day2">
+        <p>{{ forecastData1 | date: 'shortTime'}}</p>
+        <p><img src="{{ forecastImg1 }}"/></p>
+        <p>
+          {{ forecastTemperature1 }}
+        </p>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center" style="border: 1px solid black;" id="day3">
+        <p>{{ forecastData2 | date: 'shortTime' }}</p>
+        <p><img src="{{ forecastImg2 }}"/></p>
+        <p>
+          {{ forecastTemperature2 }}
+        </p>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center" style="border: 1px solid black;" id="day4">
+        <p>{{ forecastData3 | date: 'shortTime' }}</p>
+        <p><img src="{{ forecastImg3 }}"/></p>
+        <p>
+          {{ forecastTemperature3 }}
+        </p>
+      </div>
+
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center" style="border: 1px solid black;" id="day5">
+        <p>{{ forecastData4 | date: 'shortTime' }}</p>
+        <p><img src="{{ forecastImg4 }}"/></p>
+        <p>
+          {{ forecastTemperature4 }}
+        </p>
+      </div>
+
+    </div>
+
+</div>
+
+
+
